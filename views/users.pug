@@ -1,0 +1,44 @@
+extends layout
+block content
+  .container
+    each item in data
+      li
+        .id=item.id
+        .name=item.name
+        .age=item.age
+        button.del(data-id=item.id) 删除
+  .add
+    input(name="name" placeholder="姓名")
+    input(name="age" placeholder="年龄")
+    button#add 添加
+  script(src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js")
+  script.
+    $(".del").click(function(){
+      $.ajax({
+        url:'/api/users/delete',
+        method:'post',
+        data:{
+          id:$(this).attr("data-id")
+        },
+        success(res){
+          if(res.code===200){
+            location.reload();
+          }
+        }
+      })
+    })
+    $("#add").click(function(){
+      $.ajax({
+        url:'/api/users/add',
+        method:'post',
+        data:{
+          name:$("input[name='name']").val(),
+          age:$("input[name='age']").val()
+        },
+        success(res){
+          if(res.code===200){
+            location.reload();
+          }
+        }
+      })
+    })

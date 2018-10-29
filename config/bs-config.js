@@ -19,7 +19,7 @@ module.exports = {
   "ui": {
     "port": 3005
   },
-  "files": ['./routes/**/*.js', './views/**/*.pug', './public/**/*.*'],
+  "files": ['./routes/**/*.js', './views/**/*.pug', './public/**/*.*','./sql/**/*.*'],
   "watchEvents": [
     "change"
   ],
