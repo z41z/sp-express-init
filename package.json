@@ -1,6 +1,6 @@
 {
   "name": "sp-express-init",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "private": false,
   "scripts": {
     "dev": "npm run start | npm run watch",
